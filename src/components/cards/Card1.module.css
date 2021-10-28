@@ -34,6 +34,7 @@
     font-weight: bolder;
     font-size: 0.7rem;
     box-shadow: 0 8px 8px -4px lightblue;
+    gap: 1rem;
 }
 
 .img {
