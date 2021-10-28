@@ -3,6 +3,7 @@ import FAQ from "./components/faq/FAQ";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import TopSection from "./components/topSection/TopSection";
 import Login from "./pages/Login";
+import Navbar from "./components/navbar/Navbar";
 
 const theme = createTheme({
   typography: {
@@ -19,10 +20,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        {/* <Homepage></Homepage>
-        <TopSection />
-        <FAQ /> */}
-        <Login />
+        <Navbar></Navbar>
+        <Homepage></Homepage>
       </div>
     </ThemeProvider>
   );
