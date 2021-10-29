@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import TopSection from "./components/topSection/TopSection";
 import Login from "./pages/Login";
 import Navbar from "./components/navbar/Navbar";
-
+import Search from './pages/SearchDoctors'
 
 const theme = createTheme({
 	typography: {
