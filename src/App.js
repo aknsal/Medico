@@ -4,6 +4,8 @@ import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import TopSection from "./components/topSection/TopSection";
 import Login from "./pages/Login";
 import Navbar from "./components/navbar/Navbar";
+import DoctorProfile from "./pages/DoctorProfile";
+import PatientDashboard from "./pages/PatientDashboard";
 
 
 const theme = createTheme({
@@ -21,8 +23,10 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<div>
-				<Navbar></Navbar>
+				{/* <Navbar></Navbar> */}
 				<Homepage></Homepage>
+				<DoctorProfile/>
+				<PatientDashboard/>
 			</div>
 		</ThemeProvider>
 	);

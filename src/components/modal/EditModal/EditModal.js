@@ -1,8 +1,8 @@
 import React from 'react'
 import { Button } from "@material-ui/core";
-import classes from './Modal.module.css'
+import classes from './EditModal.module.css'
 
-const Modal = ({open , onClose}) => {
+const EditModal = ({open , onClose}) => {
     if(!open)
         return null;
 
@@ -56,10 +56,10 @@ const Modal = ({open , onClose}) => {
                     color="primary"
                     onClick={onClose}
                 >
-                    Update
+                    Close
                 </Button>
         </div>
     )
 }
 
-export default Modal
+export default EditModal

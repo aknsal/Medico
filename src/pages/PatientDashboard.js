@@ -2,12 +2,14 @@ import React , { useState } from 'react'
 import classes from './PatientDashboard.module.css'
 // import { FaUserEdit } from 'react-icons/fa'
 import { Button } from "@material-ui/core";
-import Modal from '../components/modal/Modal';
-import Backdrop from '../components/modal/Backdrop';
+import EditModal from '../components/modal/EditModal/EditModal';
+import ReportModal from '../components/modal/ReportModal/ReportModal';
+import Backdrop from '../components/modal/Backdrop/Backdrop';
 
 const PatientDashboard = () => {
 
-    const [showModal , setShowModal] = useState(false);
+    const [showEditModal , setShowEditModal] = useState(false);
+    const [showReportModal , setShowReportModal] = useState(false);
 
     return (
         <div className={classes.container}>
@@ -36,12 +38,12 @@ const PatientDashboard = () => {
                     gutterBottom
                     variant="contained"
                     color="primary"
-                    onClick={()=>setShowModal(true)}
+                    onClick={()=>setShowEditModal(true)}
                 >
                     Edit
                 </Button>
-                <Modal open={showModal} onClose={()=>setShowModal(false)}/>
-                <Backdrop open={showModal} onClose={()=>setShowModal(false)}/>
+                <EditModal open={showEditModal} onClose={()=>setShowEditModal(false)}/>
+                <Backdrop open={showEditModal} onClose={()=>setShowEditModal(false)}/>
             </div>
             <div className={classes.below}>
                 <div className={classes.appointment}>
@@ -50,12 +52,24 @@ const PatientDashboard = () => {
                     </div>
                     <p>No appointments made</p>
                 </div>
-                <div className={classes.schedule}>
+                {/* <div className={classes.schedule}>
                     <div className={classes.heading}>
                         <h1>Schedule</h1>
                     </div>
                     <p>Nothing to be seen</p>
-                </div>
+                </div> */}
+                <div>                    
+                <Button
+                        className={classes.pastReports , classes.btn}
+                        gutterBottom
+                        variant="contained"
+                        color="primary"
+                           onClick={()=>setShowReportModal(true)}
+                        >
+                        Past Reports
+                    </Button>
+                     <ReportModal open={showReportModal} onClose={()=>setShowReportModal(false)}/>
+                <Backdrop open={showReportModal} onClose={()=>setShowReportModal(false)}/></div>
             </div>
         </div>
     )
