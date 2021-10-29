@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Navbar from "./components/navbar/Navbar";
 import DoctorProfile from "./pages/DoctorProfile";
 import PatientDashboard from "./pages/PatientDashboard";
+import PatientProfile from "./pages/PatientProfile";
 
 
 const theme = createTheme({
@@ -27,6 +28,7 @@ function App() {
 				<Homepage></Homepage>
 				<DoctorProfile/>
 				<PatientDashboard/>
+				<PatientProfile/>
 			</div>
 		</ThemeProvider>
 	);
