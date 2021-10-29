@@ -49,15 +49,15 @@ const PatientDashboard = () => {
                 </div> */}
                 <div>                    
                 <Button
-                        className={classes.pastReports , classes.btn}
-                        gutterBottom
-                        variant="contained"
-                        color="primary"
-                           onClick={()=>setShowReportModal(true)}
-                        >
-                        Past Reports
-                    </Button>
-                     <ReportModal open={showReportModal} onClose={()=>setShowReportModal(false)}/>
+                    className={classes.pastReports , classes.btn}
+                    gutterBottom
+                    variant="contained"
+                    color="primary"
+                        onClick={()=>setShowReportModal(true)}
+                    >
+                    Past Reports
+                </Button>
+                <ReportModal open={showReportModal} onClose={()=>setShowReportModal(false)}/>
                 <Backdrop open={showReportModal} onClose={()=>setShowReportModal(false)}/></div>
             </div>
         </div>

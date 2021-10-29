@@ -8,6 +8,7 @@ import Footer from "./components/footer/footer";
 import DoctorProfile from "./pages/DoctorProfile";
 import PatientDashboard from "./pages/PatientDashboard";
 import PatientProfile from "./pages/PatientProfile";
+import DoctorDashboard from './pages/DoctorDashboard'
 
 const theme = createTheme({
 	typography: {
@@ -24,9 +25,7 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<div>
-				<Navbar></Navbar>
-				<Homepage></Homepage>
-				<Footer />
+				<DoctorDashboard/>
 			</div>
 		</ThemeProvider>
 	);

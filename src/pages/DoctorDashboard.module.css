@@ -1,0 +1,105 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto;
+    gap: 2rem;
+    z-index: 2;
+}
+
+.up {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    /* margin-top: 2rem; */
+    margin-bottom: 2rem;
+    /* margin-left: auto;
+    margin-right: auto; */
+}
+
+.common {
+    background-color: #f7f8f5;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    box-shadow: 0 2px 4px 0 rgb(128 128 128 / 30%);
+    border-radius: 10px;
+    width: 28rem;
+}
+
+.information {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 1000px; */
+    font-weight: bolder;
+    overflow: hidden;
+}
+
+.both {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.info1 {
+    font-weight: bold;
+}
+
+.appointment {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgb(128 128 128 / 30%);
+    width: 28rem;
+}
+
+.btn {
+    background-color: white!important;
+    color: black!important;
+}
+
+.below {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.patients {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgb(128 128 128 / 30%);
+    width: 28rem;
+}
+
+.heading {
+    text-align: center;
+}
