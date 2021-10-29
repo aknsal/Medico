@@ -5,8 +5,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const app = express();
 
-app.use(passport.initialize());
-app.use(passport.session());
+require("./config/passport");
 
 const db = "mongodb+srv://aditya:T6guNspYropoREX5@mycluster.wkbqc.mongodb.net/HackOut?retryWrites=true&w=majority";
 if (db) {
@@ -19,7 +18,6 @@ if (db) {
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
 
 
 app.use(
@@ -35,8 +33,9 @@ app.use(
 );
 
 
-// PASSPORT MIDDLEWARE
-
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // ROUTES

@@ -1,4 +1,6 @@
-const { Router } = require("express");
+const express = require("express");
+const passport = require("passport");
+const router = express.Router();
 
 const {
   Patientlogin,
@@ -7,12 +9,10 @@ const {
 
 const Doctorlogin = require("../controllers/DoctorLogin");
 
-Router.route = router
-  .route("/Patientlogin")
-  .get(Patientlogin)
-  .route("/Patientregister")
-  .get(Patientregister)
-  .route("/Doctorlogin")
-  .get(Doctorlogin);
+router.post("/patientlogin",passport.authenticate("local"),Patientlogin)
+  
+router.post("/patientregister",Patientregister)
+  // .route("/Doctorlogin")
+  // .get(Doctorlogin);
 
 module.exports = router;

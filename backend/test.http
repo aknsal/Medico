@@ -1,0 +1,9 @@
+POST http://localhost:8000/api/patientregister
+
+{
+    "fname":"abc",
+    "lname":"xyz",
+    "username":"abcdefg",
+    "password":"password",
+    "email":"abc@xyz.com"
+}

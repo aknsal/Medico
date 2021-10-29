@@ -1,47 +1,40 @@
-const passport = require("passport");
 const Patient = require("../models/patient");
-
-passport.use(Patient.createStrategy());
-passport.serializeUser(Patient.serializeUser());
-passport.deserializeUser(Patient.deserializeUser());
+const genPassword = require("../utils/passwordUtils").genPassword;
 
 const Patientregister = async (req, res) => {
-  Patient.register(
-    {
+  try {
+    console.log(req.body.password);
+    const saltHash = genPassword(req.body.password);
+    const salt = saltHash.salt;
+    const hash = saltHash.hash;
+
+    const newPatient = new Patient({
+      username: req.body.username,
+      hash: hash,
+      salt: salt,
       fname: req.body.fname,
       lname: req.body.lname,
-      username: req.body.username,
       email: req.body.email,
-      age: req.body.age,
-      gender: req.body.gender,
-    },
-    req.body.password,
-    (err, user) => {
-      if (err) {
-        console.log(err);
-        res.json({ msg: err, code: 404 });
-      } else {
-        passport.authenticate("local")(req, res, function () {
-          res.json({ msg: "REGISTER SUCCESFULL", code: 201 });
-        });
-      }
-    }
-  );
+    });
+
+    // Save user
+    await newPatient.save();
+    return res.status(201).json({
+      success: true,
+      data: newPatient,
+    });
+  } catch (err) {
+    console.log("Error occured while registering", err);
+    return res.status(500).json({
+      success: false,
+      error: `Error Adding User: ${err.message}`,
+    });
+  }
 };
 const Patientlogin = async (req, res) => {
-  const patient = new Patient({
-    username: req.body.username,
-    password: req.body.password,
-  });
-  req.login(patient, function (err) {
-    if (err) {
-      console.log(err);
-      res.json({ msg: err });
-    } else {
-      passport.authenticate("local")(req, res, function () {
-        res.json({ msg: "LOGIN SUCCESFULL", code: 201 });
-      });
-    }
+  return res.status(200).json({
+    success: true,
+    data: req.user,
   });
 };
 
