@@ -39,7 +39,7 @@ app.use(passport.session());
 
 
 // ROUTES
-const login = require("./routes/login");
+const login = require("./routes/auth");
 app.use("/api", login);
 
 const PORT = process.env.PORT || 8000;
