@@ -1,0 +1,120 @@
+.main {
+    margin-bottom: 2rem; 
+}
+
+.mainimg {
+    height: 15rem;
+    width: 100%;
+    background: rgb(161, 160, 160);
+}
+
+.below {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    margin: 0 4rem;
+}
+
+.first {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: self-start;
+    flex-wrap: wrap;
+    width: 19rem;
+    transform: translateY(-50px);
+}
+
+.attributes {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.img {
+    height: 11rem;
+    border-radius: 1000px;
+    border: 2px solid white;
+}
+
+.second {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 19rem;
+}
+
+.treatments {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6F7FB;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.treatments .heading {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+    width: 100%;
+}
+
+.treatments .items {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.treatments li{
+    list-style-type: none;
+}
+.treatments li p{
+    font-size: 1rem;
+}
+
+.feedback {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background-color: #F6F7FB;
+    border-radius: 10px;
+    padding: 1.5rem;
+}
+
+.feedback .heading {
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.third {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 19rem;
+}
+
+.btn {
+    background-color: #FA576E!important;
+}

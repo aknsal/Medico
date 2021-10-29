@@ -5,26 +5,27 @@ import TopSection from "./components/topSection/TopSection";
 import Login from "./pages/Login";
 import Navbar from "./components/navbar/Navbar";
 
+
 const theme = createTheme({
-  typography: {
-    roboto: {
-      fontFamily: "Roboto",
+    typography: {
+        roboto: {
+            fontFamily: "Roboto",
+        },
+        poppins: {
+            fontFamily: "Poppins",
+        },
     },
-    poppins: {
-      fontFamily: "Poppins",
-    },
-  },
 });
 
 function App() {
-  return (
-    <ThemeProvider theme={theme}>
-      <div>
-        <Navbar></Navbar>
-        <Homepage></Homepage>
-      </div>
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <div>
+                <Navbar></Navbar>
+                <Homepage></Homepage>
+            </div>
+        </ThemeProvider>
+    );
 }
 
 export default App;
