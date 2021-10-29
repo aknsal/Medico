@@ -1,16 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const session = require("express-session");
 const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
 const app = express();
 
-
-
+app.use(passport.initialize());
+app.use(passport.session());
 
 const db = "mongodb+srv://aditya:T6guNspYropoREX5@mycluster.wkbqc.mongodb.net/HackOut?retryWrites=true&w=majority";
-
-
 if (db) {
   mongoose
     .connect(db, { useNewUrlParser: true })
@@ -38,11 +36,12 @@ app.use(
 
 
 // PASSPORT MIDDLEWARE
-// app.use(passport.initialize());
-// app.use(passport.session());
+
 
 
 // ROUTES
+const login = require("./routes/login");
+app.use("/api", login);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, console.log(`Server started on port ${PORT}`));
