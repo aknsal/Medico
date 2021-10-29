@@ -1,0 +1,109 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 2rem 1rem 5rem 1rem;
+    gap: 2rem;
+    z-index: 2;
+}
+
+.up {
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    box-shadow: 0 2px 4px 0 rgb(128 128 128 / 30%);
+    background-color: #f7f8f5;
+    /* margin-top: 2rem; */
+    margin-bottom: 2rem;
+    /* margin-left: auto;
+    margin-right: auto; */
+    border-radius: 10px;
+}
+
+.common {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.img {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* border-radius: 1000px; */
+    font-weight: bolder;
+    overflow: hidden;
+}
+
+.both {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.info1 {
+    font-weight: bold;
+}
+
+/* .icon {
+    transform: translate(29px,-129px);
+    border: 2px solid black;
+    border-radius: 1000px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: white;
+    background-color: black;
+    transition: 0.3s ease-in-out;
+} */
+
+.btn {
+    background-color: white!important;
+    color: black!important;
+}
+
+.below {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.appointment {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgb(128 128 128 / 30%);
+}
+
+.schedule {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgb(128 128 128 / 30%);
+}
+
+.heading {
+    text-align: center;
+}
