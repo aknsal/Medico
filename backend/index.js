@@ -5,13 +5,10 @@ const session = require("express-session");
 const passport = require("passport");
 const app = express();
 
-app.use(express.static(path.join(__dirname, "public")));
 
 
-require("./config/passport");
 
-
-const db = "mongodb+srv://aditya:<password>@mycluster.wkbqc.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const db = "mongodb+srv://aditya:T6guNspYropoREX5@mycluster.wkbqc.mongodb.net/HackOut?retryWrites=true&w=majority";
 
 
 if (db) {
