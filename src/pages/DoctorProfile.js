@@ -1,8 +1,12 @@
-import React from 'react'
-import classes from './Doctor.module.css'
+import React, { useState } from 'react'
+import classes from './DoctorProfile.module.css'
 import { Button } from "@material-ui/core";
+import BookAppointmentModal from '../components/modal/BookAppointmentModal/BookAppointmentModal';
+import Backdrop from '../components/modal/Backdrop/Backdrop';
 
-const Doctor = () => {
+
+const DoctorProfile = () => {
+     const [showBookAppointmentModal , setShowBookAppointmentModal] = useState(false);
     return (
         <div className={classes.main}>
             <div className={classes.mainimg}>
@@ -48,13 +52,16 @@ const Doctor = () => {
                         gutterBottom
                         variant="contained"
                         color="primary"
+                         onClick={()=>setShowBookAppointmentModal(true)}
                         >
                         Book an Appointment
                     </Button>
+                       <BookAppointmentModal open={showBookAppointmentModal} onClose={()=>setShowBookAppointmentModal(false)}/>
+                <Backdrop open={showBookAppointmentModal} onClose={()=>setShowBookAppointmentModal(false)}/>
                 </div>
             </div>
         </div>
     )
 }
 
-export default Doctor
+export default DoctorProfile;

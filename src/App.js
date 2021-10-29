@@ -5,6 +5,9 @@ import TopSection from "./components/topSection/TopSection";
 import Login from "./pages/Login";
 import Navbar from "./components/navbar/Navbar";
 import Search from './pages/SearchDoctors'
+import DoctorProfile from "./pages/DoctorProfile";
+import PatientDashboard from "./pages/PatientDashboard";
+import Footer from './components/footer/footer'
 
 const theme = createTheme({
 	typography: {
@@ -21,8 +24,7 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<div>
-				<Navbar></Navbar>
-				<Homepage></Homepage>
+				<DoctorProfile/>
 			</div>
 		</ThemeProvider>
 	);

@@ -1,9 +1,11 @@
 import { Button, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import doctorLaptop from "../../images/doctorLaptop.jpg";
-import React from "react";
+import React, { useState }  from "react";
 import ProfessionalCardContainer from "../professionCard/ProfessionalCardContainer";
 import Grid from "@material-ui/core/Grid";
+import BookAppointmentModal from '../modal/BookAppointmentModal/BookAppointmentModal';
+import Backdrop from '../modal/Backdrop/Backdrop';
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -86,6 +88,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function TopSection() {
+   const [showBookAppointmentModal , setShowBookAppointmentModal] = useState(false);
   const classes = useStyles();
   return (
     <div className={classes.container}>
@@ -110,9 +113,12 @@ export default function TopSection() {
             gutterBottom
             variant="contained"
             color="primary"
+             onClick={()=>setShowBookAppointmentModal(true)}
           >
             Book an Appointment
           </Button>
+          <BookAppointmentModal open={showBookAppointmentModal} onClose={()=>setShowBookAppointmentModal(false)}/>
+                <Backdrop open={showBookAppointmentModal} onClose={()=>setShowBookAppointmentModal(false)}/>
         </div>
         <img src={doctorLaptop} className={classes.doctorLaptopImg} />
       </div>
