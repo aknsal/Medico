@@ -4,10 +4,10 @@ import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import TopSection from "./components/topSection/TopSection";
 import Login from "./pages/Login";
 import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/footer";
 import DoctorProfile from "./pages/DoctorProfile";
 import PatientDashboard from "./pages/PatientDashboard";
 import PatientProfile from "./pages/PatientProfile";
-
 
 const theme = createTheme({
 	typography: {
@@ -24,11 +24,9 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<div>
-				{/* <Navbar></Navbar> */}
+				<Navbar></Navbar>
 				<Homepage></Homepage>
-				<DoctorProfile/>
-				<PatientDashboard/>
-				<PatientProfile/>
+				<Footer />
 			</div>
 		</ThemeProvider>
 	);

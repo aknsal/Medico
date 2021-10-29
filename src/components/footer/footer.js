@@ -1,6 +1,7 @@
 import React from "react";
-
+import logo from "../../assets/logo.png";
 import "./footer.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
 	return (
@@ -10,9 +11,9 @@ const Footer = () => {
 					<div class="col-sm-12 col-md-6">
 						<h6>About</h6>
 						<p class="text-justify">
-							DocNet <i>A Heritage in Care Reputation in Excellence </i> is an initiative to help the patients
-							get the best medical care. DocNet focuses on providing the most efficient way to search for the
-							best doctors according to your needs.
+							Medico, <i>A Heritage in Care Reputation in Excellence </i> is an initiative to help the
+							patients get the best medical care. Medico focuses on providing the most efficient way to search
+							for the best doctors according to your needs.
 						</p>
 					</div>
 
@@ -56,10 +57,13 @@ const Footer = () => {
 			</div>
 			<div class="container">
 				<div class="row">
+					<Link className="navbar-brand" to="/">
+						<img src={logo} />
+					</Link>
 					<div class="col-md-8 col-sm-6 col-xs-12">
 						<p class="copyright-text">
 							Copyright &copy; 2021 All Rights Reserved by
-							<a href="#"> DocNet</a>.
+							<a href="#"> Medico</a>.
 						</p>
 					</div>
 

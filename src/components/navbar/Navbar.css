@@ -1,3 +1,7 @@
 .navbar {
-    background-color: #034e70!important;
+	background-color: #034e70 !important;
+}
+
+img {
+	height: 50px;
 }
