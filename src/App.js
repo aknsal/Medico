@@ -1,7 +1,6 @@
+import React from 'react';
 import Homepage from "./pages/Homepage";
-import FAQ from "./components/faq/FAQ";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
-import TopSection from "./components/topSection/TopSection";
 import Login from "./pages/Login";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/footer";
@@ -9,6 +8,7 @@ import DoctorProfile from "./pages/DoctorProfile";
 import PatientDashboard from "./pages/PatientDashboard";
 import PatientProfile from "./pages/PatientProfile";
 import DoctorDashboard from './pages/DoctorDashboard'
+import { Switch , Route } from 'react-router-dom'
 
 const theme = createTheme({
 	typography: {
@@ -22,13 +22,30 @@ const theme = createTheme({
 });
 
 function App() {
+
+	const [doctor,setDoctor] = React.useState(true);
+	const [patient,setPatient] = React.useState(false);
+
 	return (
-		<ThemeProvider theme={theme}>
-			<div>
-				<PatientDashboard></PatientDashboard>
-				<DoctorDashboard/>
-			</div>
-		</ThemeProvider>
+		
+		<>
+			<Navbar patient={patient} doctor={doctor}></Navbar>
+			<ThemeProvider theme={theme}>
+				<Switch>
+					{/* <Route path="/" component={Home}></Route> */}
+					<Route exact path="/" component={Homepage}></Route>
+					<Route path="/login" component={Login}></Route>
+					<Route path="/doctorprofile" component={DoctorProfile}></Route>
+					<Route path="/patientprofile" component={PatientProfile}></Route>
+					<Route path="/doctordashboard" component={DoctorDashboard}></Route>
+					<Route path="/patientdashboard" component={PatientDashboard}></Route>
+					<Route component={Error} />
+				</Switch>
+				{/* <Login patient={patient} doctor={doctor} setDoctor={setDoctor} setPatient={setPatient}></Login> */}
+				{/* {console.log(doctor , patient)} */}
+			</ThemeProvider>
+			<Footer></Footer>
+		</>
 	);
 }
 

@@ -12,8 +12,12 @@ import Grid from "@material-ui/core/Grid";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import Radio from '@mui/material/Radio';
+import Axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
 function Copyright() {
+
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
@@ -62,10 +66,57 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+export default function Login(props) {
+
+  let history = useHistory();
+
   const classes = useStyles();
 
+  const [selectedValue, setSelectedValue] = React.useState('a');
+
+  const handleChange = (event) => {
+    setSelectedValue(event.target.value);
+  };
+
+  
+  const [user , setUser] = React.useState({
+    username: "",
+    password: ""
+  });
+  
+  let name , value;
+  function handleInput(e) {
+    e.preventDefault();
+    name = e.target.name;
+    value = e.target.value;
+    setUser({...user, [name]:value});
+  }
+  
+  // console.log(user);
+  const url = "";
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const username = user.username;
+    const password = user.password;
+    console.log(username , password);
+
+    Axios.post(url, {
+      username: username,
+      password: password,
+    }).then(res => {
+      if(res.status != 200)
+        alert('Wrong Username or Password!!!')
+      else {
+        history.push('/patientprofile')
+      }
+    })
+
+  }
+
   return (
+
+  
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       {/* <div className={classes.container}> */}
@@ -78,16 +129,46 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={handleSubmit}>
+            
+          <Radio
+            checked={selectedValue === 'a'}
+            onChange={handleChange}
+            value="a"
+            name="radio-buttons"
+            inputProps={{ 'aria-label': 'A' }}
+            label="Doctor"
+            name="Doctor"
+            autoComplete="Doctor"
+            onClick={()=>{
+              props.setDoctor(true);
+              props.setPatient(false);
+            }}
+          />Doctor
+          <Radio
+            checked={selectedValue === 'b'}
+            onChange={handleChange}
+            value="b"
+            name="radio-buttons"
+            inputProps={{ 'aria-label': 'B' }}
+            label="Patient"
+            onClick={()=>{
+              props.setPatient(true);
+              props.setDoctor(false);
+            }}
+          />Patient
+
             <TextField
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
+              id="username"
+              label="User Name"
+              name="username"
+              autoComplete="username"
+              value={user.username}
+              onChange={handleInput}
               autoFocus
             />
             <TextField
@@ -99,6 +180,8 @@ export default function Login() {
               label="Password"
               type="password"
               id="password"
+              value={user.password}
+              onChange={handleInput}
               autoComplete="current-password"
             />
             <FormControlLabel
@@ -132,7 +215,6 @@ export default function Login() {
           </form>
         </div>
       </Grid>
-      {/* </div> */}
     </Grid>
   );
 }

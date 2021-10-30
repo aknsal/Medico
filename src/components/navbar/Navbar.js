@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../../assets/logo.png";
-const Navbar = () => {
+
+const Navbar = (props) => {
+	console.log(props.doctor , props.patient);
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-collapse">
 			<div className="container-fluid">
@@ -25,6 +27,11 @@ const Navbar = () => {
 						<li className="nav-item">
 							<Link className="nav-link active" aria-current="page" to="/">
 								Home
+							</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" aria-current="page" to="/login">
+								Login
 							</Link>
 						</li>
 
