@@ -1,15 +1,34 @@
-import React , { useState } from 'react'
+import React , { useState , useEffect } from 'react'
 import classes from './PatientDashboard.module.css'
 // import { FaUserEdit } from 'react-icons/fa'
 import { Button } from "@material-ui/core";
 import EditModal from '../components/modal/EditModal/EditModal';
 import ReportModal from '../components/modal/ReportModal/ReportModal';
 import Backdrop from '../components/modal/Backdrop/Backdrop';
+import {useParams} from "react-router-dom";
+import Axios from 'axios'
 
 const PatientDashboard = () => {
 
     const [showEditModal , setShowEditModal] = useState(false);
     const [showReportModal , setShowReportModal] = useState(false);
+    const [name,setName] = useState("");
+
+    const { id } = useParams();
+     console.log(id);
+
+     useEffect(() => {
+        const url = "http://localhost:8000/api/patient/"+id;
+        console.log("Checking id",id);
+        Axios.get(url).then(res => {
+            console.log(res.data.data.fname);
+            setName(res.data.data.fname)
+           if(res.status !== 200)
+             alert('Wrong id')
+         }).catch(err=>{
+           alert(err)
+         })
+    },[]);
 
     return (
         <div className={classes.container}>
@@ -17,7 +36,7 @@ const PatientDashboard = () => {
                 <div className={classes.common}>
                     <div className={classes.img}>
                         <img src="https://newassets.apollo247.com/images/no_photo.png" alt="" />
-                        <div className="name">Name: </div>
+                        <div className="name">{name}</div>
                     </div>
                     <div className={classes.info1}>
                         <div className='bldgrp'>Blood Group: B+</div>
@@ -42,7 +61,7 @@ const PatientDashboard = () => {
                 >
                     Edit
                 </Button>
-                <EditModal open={showEditModal} onClose={()=>setShowEditModal(false)}/>
+                <EditModal open={showEditModal} onClose={()=>setShowEditModal(false)} name={name} setName={setName} id={id} />
                 <Backdrop open={showEditModal} onClose={()=>setShowEditModal(false)}/>
             </div>
             <div className={classes.below}>

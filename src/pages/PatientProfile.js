@@ -1,14 +1,30 @@
-import React , { useState } from 'react'
+import React , { useState, useEffect } from 'react'
 import classes from './PatientDashboard.module.css'
 // import { FaUserEdit } from 'react-icons/fa'
 import { Button } from "@material-ui/core";
 import ReportModal from '../components/modal/ReportModal/ReportModal';
+import {useParams} from "react-router-dom";
 import Backdrop from '../components/modal/Backdrop/Backdrop';
+import Axios from 'axios'
 
-const PatientDashboard = () => {
+const PatientProfile = () => {
 
     const [showEditModal , setShowEditModal] = useState(false);
     const [showReportModal , setShowReportModal] = useState(false);
+    const { id } = useParams();
+     console.log(id);
+
+     useEffect(() => {
+        const url = "http://localhost:8000/api/patient/"+id;
+        console.log("Checking id",id);
+        Axios.get(url).then(res => {
+            console.log(res);
+           if(res.status !== 200)
+             alert('Wrong id')
+         }).catch(err=>{
+           alert(err)
+         })
+    },[]);
 
     return (
         <div className={classes.container}>
@@ -64,4 +80,4 @@ const PatientDashboard = () => {
     )
 }
 
-export default PatientDashboard
+export default PatientProfile;
