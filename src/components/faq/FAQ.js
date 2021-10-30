@@ -163,7 +163,7 @@ export default function FAQ() {
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              It will be dependent on the respective dector. 
+              It will be dependent on the respective doctor. 
             </Typography>
           </AccordionDetails>
         </Accordion>
