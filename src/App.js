@@ -2,6 +2,7 @@ import React from 'react';
 import Homepage from "./pages/Homepage";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/footer";
 import DoctorProfile from "./pages/DoctorProfile";
