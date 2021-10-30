@@ -41,15 +41,16 @@ const EditModal = ({open , onClose}) => {
                     <input type="tel" required id="phn"/>
                 </div>
                 <div className="actions">
-                    <Button
-                        gutterBottom
-                        variant="contained"
-                        color="primary"
-                    >
-                        Submit
-                    </Button>
                 </div>
             </form>
+            <div className={classes.btn}>
+                <Button
+                    gutterBottom
+                    variant="contained"
+                    color="primary"
+                >
+                    Submit
+                </Button>
                 <Button
                     gutterBottom
                     variant="contained"
@@ -58,6 +59,7 @@ const EditModal = ({open , onClose}) => {
                 >
                     Close
                 </Button>
+            </div>
         </div>
     )
 }

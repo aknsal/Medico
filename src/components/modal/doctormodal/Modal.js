@@ -14,8 +14,12 @@ const EditModal = ({open , onClose}) => {
             <div className={classes.main}>
                 <form action="" className={classes.form}>
                     <div className={classes.control}>
-                        <label htmlFor="name">Name</label>
-                        <input type="text" id="name"/>
+                        <label htmlFor="fname">First Name</label>
+                        <input type="text" id="fname"/>
+                    </div>
+                    <div className={classes.control}>
+                        <label htmlFor="lname">Last Name</label>
+                        <input type="text" id="lname"/>
                     </div>
                     <div className={classes.control}>
                         <label htmlFor="specialty">Specialty</label>

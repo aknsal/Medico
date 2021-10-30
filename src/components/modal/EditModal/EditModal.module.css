@@ -4,14 +4,16 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 4rem;
+    padding: 1rem;
     z-index: 1000;
     width: 50rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    border-radius: 4rem;
+    border-radius: 10px;
+    width: 50%;
+    height: 90%;
+    overflow-y: scroll;
 }
 
 .heading {
@@ -24,7 +26,15 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: flex-start;
-    gap: 5rem;
+    gap: 1rem;
     font-weight: bold;
     margin-bottom: 2rem;
+}
+
+.btn {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: -webkit-fill-available;
 }

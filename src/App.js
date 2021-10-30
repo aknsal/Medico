@@ -25,6 +25,7 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<div>
+				<PatientDashboard></PatientDashboard>
 				<DoctorDashboard/>
 			</div>
 		</ThemeProvider>
