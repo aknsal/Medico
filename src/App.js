@@ -3,6 +3,7 @@ import FAQ from "./components/faq/FAQ";
 import { ThemeProvider, createTheme } from "@material-ui/core/styles";
 import TopSection from "./components/topSection/TopSection";
 import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Navbar from "./components/navbar/Navbar";
 import Footer from "./components/footer/footer";
 import DoctorProfile from "./pages/DoctorProfile";
@@ -25,8 +26,7 @@ function App() {
 	return (
 		<ThemeProvider theme={theme}>
 			<div>
-				<PatientDashboard></PatientDashboard>
-				<DoctorDashboard/>
+				<Signup />
 			</div>
 		</ThemeProvider>
 	);
