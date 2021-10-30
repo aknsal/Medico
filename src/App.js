@@ -10,6 +10,7 @@ import PatientDashboard from "./pages/PatientDashboard";
 import PatientProfile from "./pages/PatientProfile";
 import DoctorDashboard from './pages/DoctorDashboard'
 import { Switch , Route } from 'react-router-dom'
+import DoctorSearch from './pages/SearchDoctors'
 
 const theme = createTheme({
 	typography: {
@@ -38,6 +39,7 @@ function App() {
 					<Route path="/login"><Login patient={patient} doctor={doctor} setDoctor={setDoctor} setPatient={setPatient}></Login></Route>
 					<Route path="/signup" component={Signup}></Route>
 					<Route path="/doctorprofile" component={DoctorProfile}></Route>
+					<Route path="/doctorsearch" component={DoctorSearch}></Route>
 					<Route path="/patientprofile" component={PatientProfile}></Route>
 					<Route path="/doctordashboard" component={DoctorDashboard}></Route>
 					<Route path="/patientdashboard" component={PatientDashboard}></Route>

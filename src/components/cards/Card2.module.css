@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    /* align-self: start; */
 }
 
 .second {
@@ -27,6 +28,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    /* align-self: end; */
 }
 
 .text {
@@ -51,4 +53,5 @@
     border-radius: 10px;
     height: 20rem;
     width: 45vw;
+    height: 45vh;
 }
