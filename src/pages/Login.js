@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login({setPatient, setDoctor}) {
+export default function Login({patient , doctor , setPatient, setDoctor}) {
 
   let history = useHistory();
 
@@ -78,7 +78,6 @@ export default function Login({setPatient, setDoctor}) {
     setSelectedValue(event.target.value);
   };
 
-  
   const [user , setUser] = React.useState({
     username: "",
     password: ""
@@ -108,11 +107,14 @@ export default function Login({setPatient, setDoctor}) {
       if(res.status !== 200)
         alert('Wrong Username or Password!!!')
       else {
-        history.push('/patientdashboard')
+        if(patient) {
+          history.push('/patientdashboard')
+        } else {
+          history.push('/doctordashboard')
+        }
       }
     }).catch(err=>{
-      
-      alert("Invalid Username or password        " + err)
+      alert("Invalid Username or password" + err)
     })
 
   }

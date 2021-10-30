@@ -30,7 +30,7 @@ function App() {
 	return (
 		
 		<>
-			<Navbar patient={patient} doctor={doctor}></Navbar>
+			{/* <Navbar patient={patient} doctor={doctor}></Navbar> */}
 			<ThemeProvider theme={theme}>
 				<Switch>
 					{/* <Route path="/" component={Home}></Route> */}

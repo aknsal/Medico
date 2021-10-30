@@ -3,12 +3,16 @@ import classes from './DoctorDashboard.module.css'
 import { Button } from "@material-ui/core";
 import Modal from '../components/modal/doctormodal/Modal' 
 import Backdrop from '../components/modal/Backdrop/Backdrop'
+import NavbarDoctor from '../components/navbar/NavbarDoctor';
 
 const DoctorDashboard = () => {
 
     const [showModal , setShowModal] = useState(false);
 
     return (
+        <>
+        
+        <NavbarDoctor/>
         <div className={classes.container}>
             <div className={classes.up}>
                 <div className={classes.common}>
@@ -55,6 +59,7 @@ const DoctorDashboard = () => {
                 </div>
             </div>
         </div>
+        </>
     )
 }
 
