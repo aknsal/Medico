@@ -1,12 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import classes from './DoctorProfile.module.css'
 import { Button } from "@material-ui/core";
 import BookAppointmentModal from '../components/modal/BookAppointmentModal/BookAppointmentModal';
 import Backdrop from '../components/modal/Backdrop/Backdrop';
+import {useParams} from "react-router-dom";
+import Axios from 'axios'
 
 
 const DoctorProfile = () => {
      const [showBookAppointmentModal , setShowBookAppointmentModal] = useState(false);
+     const { id } = useParams();
+     console.log(id);
+
+
+     useEffect(() => {
+        const url = "http://localhost:8000/api/doctor/"+id;
+        console.log("Checking id",id);
+        Axios.get(url).then(res => {
+            console.log(res);
+           if(res.status !== 200)
+             alert('Wrong id')
+         }).catch(err=>{
+           alert(err)
+         })
+    },[]);
     return (
         <div className={classes.main}>
             <div className={classes.mainimg}>

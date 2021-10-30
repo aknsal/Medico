@@ -1,10 +1,31 @@
 import React from 'react'
 import { Button } from "@material-ui/core";
 import classes from './EditModal.module.css'
+import Axios from 'axios'
+import { useHistory } from 'react-router-dom';
 
-const EditModal = ({open , onClose}) => {
+const EditModal = ({open , onClose, name, setName,id}) => {
     if(!open)
         return null;
+    function handleNameChange(e){
+        setName(e.target.value)
+    }
+
+    function handleSubmit(){
+        const url = "http://localhost:8000/api/patient/"+id;
+        Axios.patch(url, {
+            fname : name
+          }).then(res => {
+            if(res.status !== 200)
+              alert("something might be wrong")
+            else {
+                alert("Data Changed");
+            }
+          }).catch(err=>{
+            
+            alert(err)
+          })
+    }
 
     return (
         <div className={classes.modal}>
@@ -14,7 +35,7 @@ const EditModal = ({open , onClose}) => {
             <form action="" className={classes.form}>
                 <div className={classes.control}>
                     <label htmlFor="name">Name</label>
-                    <input type="text" id="name"/>
+                    <input type="text" id="name" value={name} onChange={handleNameChange}/>
                 </div>
                 <div className={classes.control}>
                     <label htmlFor="age">Age</label>
@@ -48,6 +69,7 @@ const EditModal = ({open , onClose}) => {
                     gutterBottom
                     variant="contained"
                     color="primary"
+                    onClick={handleSubmit}
                 >
                     Submit
                 </Button>
