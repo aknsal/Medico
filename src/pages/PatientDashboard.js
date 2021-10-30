@@ -12,17 +12,32 @@ const PatientDashboard = () => {
 
     const [showEditModal , setShowEditModal] = useState(false);
     const [showReportModal , setShowReportModal] = useState(false);
-    const [name,setName] = useState("");
+    const [fname,setFname] = useState("");
+    const [lname,setLname] = useState("");
+    const [bloodGroup,setBloodGroup] = useState("");
+    const [height,setHeight] = useState("");
+    const [weight,setWeight] = useState("");
+    const [gender,setGender] = useState("");
+    const [age,setAge] = useState("");
+    const [phone,setPhone] = useState("");
 
     const { id } = useParams();
      console.log(id);
 
      useEffect(() => {
-        const url = "http://localhost:8000/api/patient/"+id;
+        // const url = "http://localhost:8000/api/patient/"+id;
+        const url="";
         console.log("Checking id",id);
         Axios.get(url).then(res => {
             console.log(res.data.data.fname);
-            setName(res.data.data.fname)
+            setFname(res.data.data.fname)
+            setLname(res.data.data.lname)
+            setBloodGroup(res.data.data.bloodGroup)
+            setAge(res.data.data.age)
+            setHeight(res.data.data.height)
+            setWeight(res.data.data.weight)
+            setGender(res.data.data.gender)
+            setPhone(res.data.data.phone)
            if(res.status !== 200)
              alert('Wrong id')
          }).catch(err=>{
@@ -36,17 +51,17 @@ const PatientDashboard = () => {
                 <div className={classes.common}>
                     <div className={classes.img}>
                         <img src="https://newassets.apollo247.com/images/no_photo.png" alt="" />
-                        <div className="name">{name}</div>
+                        <div className="fname">{fname}</div>
+                        <div className="lname">{lname}</div>
                     </div>
                     <div className={classes.info1}>
-                        <div className='bldgrp'>Blood Group: B+</div>
-                        <div className="age">Age: 60</div>
-                        <div className='height'>Height: </div>
-                        <div className='weight'>Weight: </div>
-                        <div className="gender">Male: M/F/T</div>
-                        <div className="number">Phone Number: 32423483289</div>
-                        <div className="id">UHID: w234hjgywetw</div>
-                        <div className="dob">Date of Birth: 12/31/56</div>
+                        <div className='bldgrp'>Blood Group: {bloodGroup}</div>
+                        <div className="age">Age: {age}</div>
+                        <div className='height'>Height: {height}</div>
+                        <div className='weight'>Weight: {weight}</div>
+                        <div className="gender">Gender: {gender}</div>
+                        <div className="number">Phone Number: {phone}</div>
+                        <div className="id">UHID: {id}</div>
                     </div>
                     {/* <div className='icon-cont'>
                         <FaUserEdit size='2em' className={classes.icon} onClick={null}/>
@@ -61,7 +76,26 @@ const PatientDashboard = () => {
                 >
                     Edit
                 </Button>
-                <EditModal open={showEditModal} onClose={()=>setShowEditModal(false)} name={name} setName={setName} id={id} />
+                <EditModal 
+                    open={showEditModal} 
+                    onClose={()=>setShowEditModal(false)} 
+                    fname={fname} 
+                    setFname={setFname} 
+                    lname={lname} 
+                    setLname={setLname} 
+                    bloodGroup={bloodGroup} 
+                    setBloodGroup={setBloodGroup} 
+                    age={age} 
+                    setAge={setAge} 
+                    height={height} 
+                    setHeight={setHeight} 
+                    weight={weight}
+                    setWeight={setWeight} 
+                    gender={gender} 
+                    setGender={setGender} 
+                    phone={phone} 
+                    setPhone={setPhone} 
+                    id={id} />
                 <Backdrop open={showEditModal} onClose={()=>setShowEditModal(false)}/>
             </div>
             <div className={classes.below}>
