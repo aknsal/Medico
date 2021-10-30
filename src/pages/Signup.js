@@ -13,7 +13,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import GenderRadio from "./GenderRadio";
-
+import Axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 function Copyright() {
   return (
@@ -90,6 +91,56 @@ const useStyles = makeStyles((theme) => ({
 export default function Login() {
   const classes = useStyles();
 
+  const history = useHistory();
+
+  const [user,setUser] = React.useState({
+    fname: "",
+    lname: "",
+    age: "",
+    username: "",
+    email: "",
+    password: ""
+  });
+
+  let name , value;
+  function handleInput(e) {
+    e.preventDefault();
+    name = e.target.name;
+    value = e.target.value;
+    setUser({...user, [name]:value});
+  }
+
+  // console.log(user);
+  const url = "";
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const fname = user.fname;
+    const lname = user.lname;
+    const age = user.age;
+    const username = user.username;
+    const email = user.email;
+    const password = user.password;
+    console.log(fname , lname, age, username, email, password);
+
+    Axios.post(url, {
+      fname: fname,
+      lname: lname,
+      age: age,
+      username: username,
+      email: email,
+      password: password
+    }).then(res => {
+      if(res.status != 200)
+        alert('Wrong Username or Password!!!')
+      else {
+        history.push('/login')
+      }
+    })
+
+  }
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -103,7 +154,7 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Sign Up
           </Typography>
-          <form className={classes.form} noValidate>
+          <form className={classes.form} noValidate onSubmit={handleSubmit}>
 
               <div className={classes.nameContainer}>
               <TextField
@@ -116,6 +167,8 @@ export default function Login() {
               name="fname"
               autoComplete="fname"
               autoFocus
+              value={user.fname}
+              onChange={handleInput}
             />
             
 
@@ -127,6 +180,8 @@ export default function Login() {
               label="Last Name"
               name="lname"
               autoComplete="lname"
+              value={user.lname}
+              onChange={handleInput}
             />
               </div>
 
@@ -144,6 +199,8 @@ export default function Login() {
               label="Age"
               name="age"
               autoComplete="age"
+              value={user.age}
+              onChange={handleInput}
             />
             <TextField
               variant="outlined"
@@ -154,6 +211,8 @@ export default function Login() {
               label="Username"
               name="username"
               autoComplete="username"
+              value={user.username}
+              onChange={handleInput}
             />
                  </div>
                  
@@ -169,6 +228,8 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={user.email}
+              onChange={handleInput}
             />
             <TextField
               variant="outlined"
@@ -180,6 +241,8 @@ export default function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={user.password}
+              onChange={handleInput}
             />
             <Button
               type="submit"
@@ -187,6 +250,7 @@ export default function Login() {
               variant="contained"
               color="primary"
               className={classes.submit}
+              
             >
               Sign Up
             </Button>
