@@ -66,7 +66,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login(props) {
+export default function Login({setPatient, setDoctor}) {
 
   let history = useHistory();
 
@@ -93,7 +93,7 @@ export default function Login(props) {
   }
   
   // console.log(user);
-  const url = "";
+  const url = "http://localhost:8000/api/patientlogin";
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -105,11 +105,14 @@ export default function Login(props) {
       username: username,
       password: password,
     }).then(res => {
-      if(res.status != 200)
+      if(res.status !== 200)
         alert('Wrong Username or Password!!!')
       else {
-        history.push('/patientprofile')
+        history.push('/patientdashboard')
       }
+    }).catch(err=>{
+      
+      alert("Invalid Username or password        " + err)
     })
 
   }
@@ -141,8 +144,8 @@ export default function Login(props) {
             name="Doctor"
             autoComplete="Doctor"
             onClick={()=>{
-              props.setDoctor(true);
-              props.setPatient(false);
+              setDoctor(true);
+              setPatient(false);
             }}
           />Doctor
           <Radio
@@ -153,8 +156,8 @@ export default function Login(props) {
             inputProps={{ 'aria-label': 'B' }}
             label="Patient"
             onClick={()=>{
-              props.setPatient(true);
-              props.setDoctor(false);
+              setPatient(true);
+              setDoctor(false);
             }}
           />Patient
 

@@ -112,7 +112,7 @@ export default function Login() {
   }
 
   // console.log(user);
-  const url = "";
+  const url = "http://localhost:8000/api/patientregister";
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -133,7 +133,7 @@ export default function Login() {
       email: email,
       password: password
     }).then(res => {
-      if(res.status != 200)
+      if(res.status != 201)
         alert('Wrong Username or Password!!!')
       else {
         history.push('/login')

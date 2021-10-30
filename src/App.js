@@ -35,7 +35,7 @@ function App() {
 				<Switch>
 					{/* <Route path="/" component={Home}></Route> */}
 					<Route exact path="/" component={Homepage}></Route>
-					<Route path="/login" component={Login}></Route>
+					<Route path="/login"><Login patient={patient} doctor={doctor} setDoctor={setDoctor} setPatient={setPatient}></Login></Route>
 					<Route path="/signup" component={Signup}></Route>
 					<Route path="/doctorprofile" component={DoctorProfile}></Route>
 					<Route path="/patientprofile" component={PatientProfile}></Route>
@@ -43,7 +43,6 @@ function App() {
 					<Route path="/patientdashboard" component={PatientDashboard}></Route>
 					<Route component={Error} />
 				</Switch>
-				{/* <Login patient={patient} doctor={doctor} setDoctor={setDoctor} setPatient={setPatient}></Login> */}
 				{/* {console.log(doctor , patient)} */}
 			</ThemeProvider>
 			<Footer></Footer>
