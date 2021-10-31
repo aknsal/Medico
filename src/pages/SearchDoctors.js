@@ -75,7 +75,7 @@ export default function SearchDoctors() {
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
-                    {user.fname+" "+user.lname}
+                    {user.name}
                   </TableCell>
                   <TableCell align="right">{user.category}</TableCell>
                   <TableCell align="right">{user.fees}</TableCell>
