@@ -38,11 +38,13 @@ function App() {
 						<Login patient={patient} doctor={doctor} setDoctor={setDoctor} setPatient={setPatient}></Login>
 					</Route>
 					<Route path="/signup" component={Signup}></Route>
+
 					<Route path="/doctorprofile" component={DoctorProfile}></Route>
 					<Route path="/searchdoctor" component={SearchDoctors}></Route>
 					<Route path="/patientprofile" component={PatientProfile}></Route>
 					<Route path="/doctordashboard" component={DoctorDashboard}></Route>
 					<Route path="/patientdashboard" component={PatientDashboard}></Route>
+
 					{/* <Route component={Error} /> */}
 				</Switch>
 				{/* {console.log(doctor , patient)} */}

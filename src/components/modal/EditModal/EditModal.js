@@ -33,7 +33,7 @@ const EditModal = ({open , onClose, fname, setFname,lname, setLname, bloodGroup,
     }
 
     function handleSubmit(){
-        const url = "";
+        const url = "http://localhost:8000/api/patient/"+id;
         Axios.patch(url, {
             fname : fname,
             lname: lname,
