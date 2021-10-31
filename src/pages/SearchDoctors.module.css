@@ -48,6 +48,6 @@
 }
 
 .tablecontainer {
-    width: 75vw;
-    align-self: center;
+    width: 75vw!important;
+    align-self: center!important;
 }

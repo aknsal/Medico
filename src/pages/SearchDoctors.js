@@ -52,10 +52,10 @@ export default function SearchDoctors() {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Name</TableCell>
-              <TableCell align="right">Speciality</TableCell>
-              <TableCell align="right">Fees&nbsp;(Rs)</TableCell>
-              <TableCell align="right">Rating&nbsp;(out of 5 star)</TableCell>
+              <TableCell align="center">Name</TableCell>
+              <TableCell align="center">Speciality</TableCell>
+              <TableCell align="center">Fees&nbsp;(Rs)</TableCell>
+              <TableCell align="center">Rating&nbsp;(out of 5 star)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -71,12 +71,12 @@ export default function SearchDoctors() {
                   key={row.name}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row">
+                  <TableCell component="th" scope="row" align="center">
                     {row.name}
                   </TableCell>
-                  <TableCell align="right">{row.category}</TableCell>
-                  <TableCell align="right">{row.fees}</TableCell>
-                  <TableCell align="right">{row.rating}</TableCell>
+                  <TableCell align="center">{row.category}</TableCell>
+                  <TableCell align="center">{row.fees}</TableCell>
+                  <TableCell align="center">{row.rating}</TableCell>
                 </TableRow>
               ))
           }
