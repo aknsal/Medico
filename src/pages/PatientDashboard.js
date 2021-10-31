@@ -25,8 +25,8 @@ const PatientDashboard = () => {
      console.log(id);
 
      useEffect(() => {
-        // const url = "http://localhost:8000/api/patient/"+id;
-        const url="";
+        const url = "http://localhost:8000/api/patient/"+id;
+        // const url="";
         console.log("Checking id",id);
         Axios.get(url).then(res => {
             console.log(res.data.data.fname);

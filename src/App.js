@@ -38,11 +38,11 @@ function App() {
 					<Route exact path="/" component={Homepage}></Route>
 					<Route path="/login"><Login patient={patient} doctor={doctor} setDoctor={setDoctor} setPatient={setPatient}></Login></Route>
 					<Route path="/signup" component={Signup}></Route>
-					<Route path="/doctorprofile" component={DoctorProfile}></Route>
+					<Route path="/doctorprofile/:id" component={DoctorProfile}></Route>
 					<Route path="/doctorsearch" component={DoctorSearch}></Route>
-					<Route path="/patientprofile" component={PatientProfile}></Route>
-					<Route path="/doctordashboard" component={DoctorDashboard}></Route>
-					<Route path="/patientdashboard" component={PatientDashboard}></Route>
+					<Route path="/patientprofile/:id" component={PatientProfile}></Route>
+					<Route path="/doctordashboard/:id" component={DoctorDashboard}></Route>
+					<Route path="/patientdashboard/:id" component={PatientDashboard}></Route>
 					{/* <Route component={Error} /> */}
 				</Switch>
 				{/* {console.log(doctor , patient)} */}
