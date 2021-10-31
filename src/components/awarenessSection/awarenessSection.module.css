@@ -4,7 +4,12 @@
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
+	padding: 3vh 0;
 }
 .text {
-	max-width: 40vw;
+	max-width: 40%;
+	/* min-width: 500px; */
+}
+.chart {
+	min-width: 300px;
 }
