@@ -1,0 +1,53 @@
+.container{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem auto;
+}
+
+.heading {
+    text-align:center;
+    margin-bottom: 1rem;
+}
+
+.heading h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.search {
+    align-self: self-end;
+}
+
+.search input {
+    font-size: 16px ;
+    font-weight: 300 ;
+    /* color: #eee !imp; */
+    line-height: 1.625 ;
+    background-color: #333 ;
+    border-color: #eee;
+    border: none;
+    border-bottom: 1px solid #eee;
+    box-shadow: none;
+    box-sizing: content-box;
+    border-radius: 13px;
+    background-image: url(//addsearch.com/logo/AAAAAA-20.png);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+    /* width: 100% !important; */
+    color: white;
+    outline: none;
+    padding:10px;
+/* margin-left:5px; */
+    margin-right: 1rem;
+    width: auto;
+}
+
+.tablecontainer {
+    width: 75vw!important;
+    align-self: center!important;
+}

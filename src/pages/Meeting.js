@@ -78,7 +78,6 @@ export default function Meeting() {
         "coHost": false
     },
 ],
-    "siteUrl":"https://tranquil-waters-33822.herokuapp.com/join?username=Aditya",
   "hostEmail": doctorEmail
     },{
         headers: {

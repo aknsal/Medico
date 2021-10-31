@@ -6,6 +6,7 @@ import ProfessionalCardContainer from "../professionCard/ProfessionalCardContain
 import Grid from "@material-ui/core/Grid";
 import BookAppointmentModal from "../modal/BookAppointmentModal/BookAppointmentModal";
 import Backdrop from "../modal/Backdrop/Backdrop";
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles(theme => ({
 	container: {
@@ -89,6 +90,15 @@ const useStyles = makeStyles(theme => ({
 
 export default function TopSection() {
 	const [showBookAppointmentModal, setShowBookAppointmentModal] = useState(false);
+	
+	const history = useHistory();
+
+	function redirect(e) {
+		e.preventDefault();
+		alert('You need to login first!!!');
+		history.push('/login');
+	}
+
 	const classes = useStyles();
 	return (
 		<div className={classes.container}>
@@ -113,7 +123,7 @@ export default function TopSection() {
 						gutterBottom
 						variant="contained"
 						color="primary"
-						onClick={() => setShowBookAppointmentModal(true)}
+						onClick={redirect}
 					>
 						Book an Appointment
 					</Button>
