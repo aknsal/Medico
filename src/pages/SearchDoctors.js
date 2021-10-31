@@ -14,17 +14,6 @@ function createData(name, category, fees, rating, experience) {
   return { name, category, fees, rating, experience };
 }
 
-
-
-
-// const rows = [
-// 	createData("Anit Srivastava", "Cardiologist", 600, 4.0, 4),
-// 	createData("Shireen Pandey", "Gynaecologist", 500, 3.8, 10),
-// 	createData("Shobhit Chawla", "Opthologist", 400, 2.9, 7),
-// 	createData("Deependra Shukla", "Retina Specialist", 900, 4.8, 12),
-// 	createData("Abhinav Mishra", "Dietician", 400, 3.6, 6),
-// ];
-
 export default function SearchDoctors() {
   
   const [users,setUsers] = useState([]);
@@ -66,7 +55,7 @@ export default function SearchDoctors() {
               users.doctorData?.filter((val) => {
                     if(searchTerm=="") {
                         return val;
-                    } else if(val.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                    } else if(val.fname.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
                         return val;
                     }
                 } ).map((user) => (
