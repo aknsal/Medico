@@ -46,6 +46,28 @@ const PatientDashboard = () => {
 			});
 	}, []);
 
+	useEffect(() => {
+		const url = "http://localhost:8000/api/patient/" + id;
+		// const url="";
+		console.log("Checking id", id);
+		Axios.get(url)
+			.then(res => {
+				console.log(res.data.data.fname);
+				setFname(res.data.data.fname);
+				setLname(res.data.data.lname);
+				setBloodGroup(res.data.data.bloodGroup);
+				setAge(res.data.data.age);
+				setHeight(res.data.data.height);
+				setWeight(res.data.data.weight);
+				setGender(res.data.data.gender);
+				setPhone(res.data.data.phone);
+				if (res.status !== 200) alert("Wrong id");
+			})
+			.catch(err => {
+				alert(err);
+			});
+	}, []);
+
 	return (
 		<div>
 			<NavbarPatient />
@@ -67,8 +89,8 @@ const PatientDashboard = () => {
 							<div className="id">UHID: {id}</div>
 						</div>
 						{/* <div className='icon-cont'>
-                    <FaUserEdit size='2em' className={classes.icon} onClick={null}/>
-                </div> */}
+                        <FaUserEdit size='2em' className={classes.icon} onClick={null}/>
+                    </div> */}
 					</div>
 					<Button
 						className={(classes.apointmentButton, classes.btn)}
@@ -110,24 +132,70 @@ const PatientDashboard = () => {
 						<p>No appointments made</p>
 					</div>
 					{/* <div className={classes.schedule}>
+                    <div className={classes.heading}>
+                        <h1>Schedule</h1>
+                    </div>
+                    <p>Nothing to be seen</p>
+>>>>>>> 3d4f5e83582a87fe102cae180df389e3e5676f06
+                </div> */}
+				</div>
+				<Button
+					className={(classes.apointmentButton, classes.btn)}
+					gutterBottom
+					variant="contained"
+					color="primary"
+					onClick={() => setShowEditModal(true)}
+				>
+					Edit
+				</Button>
+				<EditModal
+					open={showEditModal}
+					onClose={() => setShowEditModal(false)}
+					fname={fname}
+					setFname={setFname}
+					lname={lname}
+					setLname={setLname}
+					bloodGroup={bloodGroup}
+					setBloodGroup={setBloodGroup}
+					age={age}
+					setAge={setAge}
+					height={height}
+					setHeight={setHeight}
+					weight={weight}
+					setWeight={setWeight}
+					gender={gender}
+					setGender={setGender}
+					phone={phone}
+					setPhone={setPhone}
+					id={id}
+				/>
+				<Backdrop open={showEditModal} onClose={() => setShowEditModal(false)} />
+			</div>
+			<div className={classes.below}>
+				<div className={classes.appointment}>
+					<div className={classes.heading}>
+						<h1>Recent Appointments</h1>
+					</div>
+					<p>No appointments made</p>
+				</div>
+				{/* <div className={classes.schedule}>
                 <div className={classes.heading}>
                     <h1>Schedule</h1>
                 </div>
                 <p>Nothing to be seen</p>
             </div> */}
-					<div>
-						<Button
-							className={(classes.pastReports, classes.btn)}
-							gutterBottom
-							variant="contained"
-							color="primary"
-							onClick={() => setShowReportModal(true)}
-						>
-							Past Reports
-						</Button>
-						<ReportModal open={showReportModal} onClose={() => setShowReportModal(false)} />
-						<Backdrop open={showReportModal} onClose={() => setShowReportModal(false)} />
-					</div>
+				<div>
+					<Button
+						className={(classes.pastReports, classes.btn)}
+						gutterBottom
+						variant="contained"
+						color="primary"
+						onClick={() => setShowReportModal(true)}
+					>
+						Past Reports
+					</Button>
+					<ReportModal open={showReportModal} onClose={() => setShowReportModal(false)} />
+					<Backdrop open={showReportModal} onClose={() => setShowReportModal(false)} />
 				</div>
 			</div>
 		</div>
