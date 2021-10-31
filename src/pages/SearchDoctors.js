@@ -8,21 +8,22 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useState , useEffect } from 'react'
 import classes from './SearchDoctors.module.css'
+import NavbarPatient from "../components/navbar/NavbarPatient";
 
 function createData(name, category, fees, rating, experience) {
   return { name, category, fees, rating, experience };
 }
 
 const rows = [
-  createData('Anit Srivastava', "Cardiologist", 600, 4.0, 4),
-  createData('Shireen Pandey', "Gynaecologist", 500, 3.8, 10),
-  createData('Shobhit Chawla', "Opthologist", 400, 2.9, 7),
-  createData('Deependra Shukla', "Retina Specialist", 900, 4.8, 12),
-  createData('Abhinav Mishra', "Dietician", 400, 3.6, 6),
+	createData("Anit Srivastava", "Cardiologist", 600, 4.0, 4),
+	createData("Shireen Pandey", "Gynaecologist", 500, 3.8, 10),
+	createData("Shobhit Chawla", "Opthologist", 400, 2.9, 7),
+	createData("Deependra Shukla", "Retina Specialist", 900, 4.8, 12),
+	createData("Abhinav Mishra", "Dietician", 400, 3.6, 6),
 ];
 
 export default function SearchDoctors() {
-
+  
   const [users,setUsers] = useState([]);
   const url = "";
   const getUsers = async () => {
@@ -39,6 +40,7 @@ export default function SearchDoctors() {
 
   return (
     <>
+    <NavbarPatient />
     <div className={classes.container}>
       <div className={classes.heading}>
         <h1>List of Doctors</h1>
