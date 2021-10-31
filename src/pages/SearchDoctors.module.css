@@ -4,6 +4,8 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 1rem;
+    margin: 1rem auto;
 }
 
 .heading {
@@ -40,10 +42,12 @@
     color: white;
     outline: none;
     padding:10px;
-    /* margin-left:5px; */
-  }
+/* margin-left:5px; */
+    margin-right: 1rem;
+    width: auto;
+}
 
-  .table {
-      width: 75vw;
-      align-self: center;
-  }
+.tablecontainer {
+    width: 75vw;
+    align-self: center;
+}

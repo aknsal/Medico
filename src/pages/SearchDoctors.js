@@ -48,7 +48,7 @@ export default function SearchDoctors() {
       <div className={classes.search}>
           <input type="text" placeholder="Search..." onChange={event => {setSeachTerm(event.target.value)}} />
       </div>
-      <TableContainer component={Paper} className={classes.table}>
+      <TableContainer component={Paper} className={classes.tablecontainer}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -63,7 +63,7 @@ export default function SearchDoctors() {
               rows.filter((val) => {
                     if(searchTerm=="") {
                         return val;
-                    } else if(val.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                    } else if(val.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) || val.category.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
                         return val;
                     }
                 } ).map((row) => (
