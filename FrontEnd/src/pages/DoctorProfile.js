@@ -9,6 +9,7 @@ import NavbarPatient from "../components/navbar/NavbarPatient";
 
 const DoctorProfile = () => {
 	const [showBookAppointmentModal, setShowBookAppointmentModal] = useState(false);
+    const [fname, setFname] = useState("");
 	const { id } = useParams();
 	console.log(id);
 
@@ -17,6 +18,7 @@ const DoctorProfile = () => {
 		console.log("Checking id", id);
 		Axios.get(url)
 			.then(res => {
+                setFname(res.data.doctorData.fname);
 				console.log(res);
 				if (res.status !== 200) alert("Wrong id");
 			})
@@ -36,7 +38,7 @@ const DoctorProfile = () => {
 							src="https://imgr.search.brave.com/hRz5-gSXl6Ex4HaOodVrM0p5m782bZof6FRWdv7Pr6M/fit/474/225/ce/1/aHR0cHM6Ly90c2Ux/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC55/LW5HeXFUNUF3RVM4/b3FwMzQ0ejRnSGFI/YSZwaWQ9QXBp"
 							alt=""
 						/>
-						<h3>Name</h3>
+						<h3>{fname}</h3>
 						<div className="profession">Profession</div>
 						<div className={classes.attributes}>
 							<div className="attr">lorem</div>

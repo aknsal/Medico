@@ -108,7 +108,7 @@ export default function Login({patient , doctor , setPatient, setDoctor}) {
         alert('Wrong Username or Password!!!')
       else {
         if(patient) {
-          history.push('/patientdashboard')
+          history.push('/patientdashboard/617e51b14cf9e9e5962c592e')
         } else {
           history.push('/doctordashboard')
         }
