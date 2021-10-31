@@ -4,6 +4,8 @@
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
+	background-color: #F6F7FB;
+	padding: 1rem;
 }
 .text {
 	max-width: 40vw;

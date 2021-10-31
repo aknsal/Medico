@@ -11,6 +11,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    backgroundColor: "#F6F7FB"
   },
   root: {
     maxWidth: 1000,

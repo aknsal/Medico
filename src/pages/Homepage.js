@@ -18,7 +18,7 @@ export default function Homepage() {
 			<Card2 />
 			<Card3 />
 			<FAQ />
-			<Reviews />
+			{/* <Reviews /> */}
 		</div>
 	);
 }
