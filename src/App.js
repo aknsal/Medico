@@ -9,6 +9,7 @@ import DoctorProfile from "./pages/DoctorProfile";
 import PatientDashboard from "./pages/PatientDashboard";
 import PatientProfile from "./pages/PatientProfile";
 import DoctorDashboard from './pages/DoctorDashboard'
+import Meeting from "./pages/Meeting";
 import { Switch , Route } from 'react-router-dom'
 import DoctorSearch from './pages/SearchDoctors'
 
@@ -43,6 +44,7 @@ function App() {
 					<Route path="/patientprofile/:id" component={PatientProfile}></Route>
 					<Route path="/doctordashboard/:id" component={DoctorDashboard}></Route>
 					<Route path="/patientdashboard/:id" component={PatientDashboard}></Route>
+					<Route path="/newmeet/:doctorid/:patientid" component={Meeting}></Route>
 					{/* <Route component={Error} /> */}
 				</Switch>
 				{/* {console.log(doctor , patient)} */}
