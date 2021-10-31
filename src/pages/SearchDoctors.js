@@ -14,18 +14,21 @@ function createData(name, category, fees, rating, experience) {
   return { name, category, fees, rating, experience };
 }
 
-const rows = [
-	createData("Anit Srivastava", "Cardiologist", 600, 4.0, 4),
-	createData("Shireen Pandey", "Gynaecologist", 500, 3.8, 10),
-	createData("Shobhit Chawla", "Opthologist", 400, 2.9, 7),
-	createData("Deependra Shukla", "Retina Specialist", 900, 4.8, 12),
-	createData("Abhinav Mishra", "Dietician", 400, 3.6, 6),
-];
+
+
+
+// const rows = [
+// 	createData("Anit Srivastava", "Cardiologist", 600, 4.0, 4),
+// 	createData("Shireen Pandey", "Gynaecologist", 500, 3.8, 10),
+// 	createData("Shobhit Chawla", "Opthologist", 400, 2.9, 7),
+// 	createData("Deependra Shukla", "Retina Specialist", 900, 4.8, 12),
+// 	createData("Abhinav Mishra", "Dietician", 400, 3.6, 6),
+// ];
 
 export default function SearchDoctors() {
   
   const [users,setUsers] = useState([]);
-  const url = "";
+  const url = "http://localhost:8000/api/alldoctors";
   const getUsers = async () => {
     const response = await fetch(url);
     setUsers(await response.json());
@@ -48,35 +51,35 @@ export default function SearchDoctors() {
       <div className={classes.search}>
           <input type="text" placeholder="Search..." onChange={event => {setSeachTerm(event.target.value)}} />
       </div>
-      <TableContainer component={Paper} className={classes.tablecontainer}>
+      <TableContainer component={Paper} className={classes.table}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="center">Name</TableCell>
-              <TableCell align="center">Speciality</TableCell>
-              <TableCell align="center">Fees&nbsp;(Rs)</TableCell>
-              <TableCell align="center">Rating&nbsp;(out of 5 star)</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell align="right">Speciality</TableCell>
+              <TableCell align="right">Fees&nbsp;(Rs)</TableCell>
+              <TableCell align="right">Rating&nbsp;(out of 5 star)</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
           {
-              rows.filter((val) => {
+              users.doctorData?.filter((val) => {
                     if(searchTerm=="") {
                         return val;
-                    } else if(val.name.toLowerCase().includes(searchTerm.toLocaleLowerCase()) || val.category.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                    } else if(val.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())) {
                         return val;
                     }
-                } ).map((row) => (
+                } ).map((user) => (
                 <TableRow
-                  key={row.name}
+                  key={user.fname+" "+user.lname}
                   sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
-                  <TableCell component="th" scope="row" align="center">
-                    {row.name}
+                  <TableCell component="th" scope="row">
+                    {user.name}
                   </TableCell>
-                  <TableCell align="center">{row.category}</TableCell>
-                  <TableCell align="center">{row.fees}</TableCell>
-                  <TableCell align="center">{row.rating}</TableCell>
+                  <TableCell align="right">{user.category}</TableCell>
+                  <TableCell align="right">{user.fees}</TableCell>
+                  <TableCell align="right">{user.rating}</TableCell>
                 </TableRow>
               ))
           }

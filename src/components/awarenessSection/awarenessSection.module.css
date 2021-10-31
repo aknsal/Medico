@@ -8,5 +8,9 @@
 	padding: 1rem;
 }
 .text {
-	max-width: 40vw;
+	max-width: 40%;
+	/* min-width: 500px; */
+}
+.chart {
+	min-width: 300px;
 }
